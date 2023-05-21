@@ -281,7 +281,7 @@ public class Membre extends Adherent {
 	 */
 	public static int changerStatut(Club club, int idMembre, Statut statut) {
 		
-		if (!statut.equals(Statut.MEMBRE) && !statut.equals(Statut.PRESIDENT) && !statut.equals(Statut.SECRETAIRE) && !statut.equals(Statut.TRESORIER)) {
+		if (statut == null || (!statut.equals(Statut.MEMBRE) && !statut.equals(Statut.PRESIDENT) && !statut.equals(Statut.SECRETAIRE) && !statut.equals(Statut.TRESORIER))) {
 			return -9;
 		}
         Membre[] membres = club.getMembres();

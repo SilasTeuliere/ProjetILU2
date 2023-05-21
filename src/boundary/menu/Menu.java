@@ -401,10 +401,10 @@ public class Menu {
 			        			System.out.println("Le status du président ne peut être changé sans avoir au préalable choisi un autre président");
 			        			break;
 			        		case -2:
-			        			System.out.println("Membre inconnu");
+			        			System.out.println("Statut pré-existant");
 			        			break;
 			        		case -1:
-			        			System.out.println("Statut pré-existant");
+			        			System.out.println("Membre inconnu");
 			        			break;
 			        		case 1:
 			        			System.out.println("Il faut trouver un autre secretaire");

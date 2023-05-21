@@ -80,7 +80,7 @@ public class Page {
         bouton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String texteSaisi = zoneSaisie.getText().toUpperCase();
-                zoneLecture.append(texteSaisi + "\n");
+                
                 zoneSaisie.setText("");
 
                 if (texteSaisi.contains("M")) {
@@ -304,11 +304,11 @@ public class Page {
                 	club.changerStatut(club.ajoutMembre(nomPrenom, email, adresse, telephone, Statut.MEMBRE), statutSaisie);
                     cardLayout.show(cardPanel, "Menu");
                     label.setText("Menu");
+                    clearFields();
                 } else {
                     // Afficher un message d'erreur si tous les champs ne sont pas remplis
                     JOptionPane.showMessageDialog(fenetre, "Veuillez remplir tous les champs", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
-                clearFields();
             }
         });
 
@@ -520,10 +520,10 @@ public class Page {
     	        			JOptionPane.showMessageDialog(fenetre, "Le status du président ne peut être changé sans avoir au préalable choisi un autre président");
     	        			break;
     	        		case -2:
-    	        			JOptionPane.showMessageDialog(fenetre, "Membre inconnu");
+    	        			JOptionPane.showMessageDialog(fenetre, "Statut pré-existant");
     	        			break;
     	        		case -1:
-    	        			JOptionPane.showMessageDialog(fenetre, "Statut pré-existant");
+    	        			JOptionPane.showMessageDialog(fenetre, "Membre inconnu");
     	        			break;
     	        		case 1:
     	        			JOptionPane.showMessageDialog(fenetre, "Il faut trouver un autre secretaire");

@@ -189,6 +189,21 @@ public class ControlerClub implements IControlerClub {
 		return membre.getId();
 	}
 
+
+	/**
+	 * Recherche du statut d'une personne donnée
+	 * @param id
+	 * @return statut
+	 */
+	@Override
+	public Statut rechercherStatut(int id) {
+		Membre membre = Membre.trouverMembre(club, id);
+		if (membre == null) {
+			return null;
+		}
+		return membre.getStatut();
+	}
+
 	/**
 	 * creer programme Ocaml liste des membres
 	 * @return

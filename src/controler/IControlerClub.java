@@ -76,6 +76,13 @@ public interface IControlerClub {
 	 * @return identifiant
 	 */
 	int rechercherStatut(Statut statut);
+	
+	/**
+	 * Recherche du statut d'une personne donnée
+	 * @param id
+	 * @return statut
+	 */
+	public Statut rechercherStatut(int id);
 
 	/**
 	 * creer programme Ocaml liste des membres
