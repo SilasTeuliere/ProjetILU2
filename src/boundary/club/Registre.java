@@ -17,7 +17,7 @@ import controler.membre.ControlerTresorier;
  * Toutes les données utilisées pour la creation du Club ou des membres sont des données de test.
  * Que ce soit numéro de telephone, email, adresse ou autre...
  * */
-
+ 
 public class Registre {
 	
 		public static void test(IControlerClub controlerClub) {

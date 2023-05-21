@@ -12,7 +12,7 @@ import controler.membre.ControlerSecretaire;
 import controler.membre.ControlerTresorier;
 import commun.Statut;
 
-/**
+/** 
  * Classe presentant la selection des actions que l'on peut faire dans l'appli
  */
 public class Menu {

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author silas
- *
+ * 
  */
 public class AchatAffichage {
 	private List<String> fournitures;

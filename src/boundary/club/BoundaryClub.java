@@ -1,7 +1,7 @@
 package boundary.club;
 
 import controler.IControlerClub;
-
+ 
 public class BoundaryClub {
 	
 	/**
