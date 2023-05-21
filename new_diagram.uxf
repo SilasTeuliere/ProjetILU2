@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>54</x>
+      <y>252</y>
+      <w>450</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>evenement::Evenement
+--
+-date: LocalDateTime
+-description: String
+-fournitures = new FournitureEven[Produit.getNombreProduitDifferent()]: FournitureEven[]
+-lieu: Salle
+-inscrits = null: InscritEven[]
+-budgetEven: double
+--
++Evenement(LocalDateTime date, String description): ctor
++getInscrits(): InscritEven[]
++setInscrits(InscritEven[] inscrits): void
++getFournitures(): FournitureEven[]
++setFournitures(FournitureEven[] fournitures): void
++getLieu(): Salle
++setLieu(Salle lieu): void
++getDate(): LocalDateTime
++getDescription(): String
++choixSalle(int nbInscrit): boolean
++etablissementTabFourniture(): boolean
+-constituerListeFournituresParInscrit(double budgetParPersonne): void
+-determinerFournitureAAcheter(double budgetIndividuRestant, final List&lt;FournitureInscrit&gt; tableauFourniture): double
+-constituerListeFournituresEvenement(int nbInscrit): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>534</x>
+      <y>60</y>
+      <w>390</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>club::Club
+--
+-nomClub = "La 3eme Mi-Temps Toulousaine": String
+-emailClub = "3emeMiTempsTls@gmail.com": String
+-numTelClub = "06.10.14.01.01": String
+-adresse = "1 All. Gabriel Bicnus, 31000 Toulouse": String
+-membres[] = null: Membre
+-evenements[] = null: Evenement
+-NumeroIDNouveau = 0: int
+--
++getMembres(): Membre[]
++getNomClub(): String
++getEmailClub(): String
++getNumTelClub(): String
++getAdresse(): String
++getEvenements(): Evenement[]
++setEvenements(Evenement[] evenements) : void
++Publicite(): String
++trieTableauParId(): Membre[]
++ajoutMembre(String nomPrenom, String email, String adresse, String numTel, Statut statut): Membre
++ajoutMembre(String nomPrenom, String email, String adresse, String numTel): void
++suppMembre(Membre membre): void
++trouverMembre(int id): Membre
++afficherMembres(): void
++rechercherStatut(Statut statut): Membre
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>942</x>
+      <y>144</y>
+      <w>534</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>membre::Membre
+--
+-id: int
+-nomPrenom: String
+-email: String
+-adresse: String
+-numTel: String
+-statut: Statut
+-anneeInscr: int
+-derAnneeParticipation: int
+--
++Membre(int id, String nomPrenom, String email, String adresse, String numTel, Statut statut, int anneeInscr, int derAnneeParticipation): ctor
++getId(): int
++getNomPrenom(): String
++getStatut(): Statut
++getEmail(): String
++getAdresse(): String
++getNumTel(): String
++getAnneeInscr(): int
++getDerAnneeParticipation(): int
++suppressionMembrePossible(): String
++changerStatut(Statut statut): Membre
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>534</y>
+      <w>246</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>evenement::InscritEven
+--
+-membre: Membre
+-budjetPrevisionnel: double
+-budjetReel: double
+-fournitures: FournitureInscrit[]
+--
++InscritEven(Membre membre, double budjetPrevisionnel): ctor
++getBudjetReel(): double
++setBudjetReel(double budjetReel): void
++getFournitures(): FournitureInscrit[]
++setFournitures(FournitureInscrit[] fournitures): void
++getMembre(): Membre
++getBudjetPrevisionnel(): double
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>582</y>
+      <w>264</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>evenement::FournitureEven
+--
+-produit: Produit
+-nbrTotal: int
+-prixTotal: double
+-nbrAchete: int
+--
++FournitureEven(Produit produit, int nbrTotal, double prixTotal): ctor
++getNbrAchete(): int
++setNbrAchete(int nbrAchete): void
++getProduit(): Produit
++getNbrTotal(): int
++getPrixTotal(): double
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>702</x>
+      <y>540</y>
+      <w>492</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>membre::Secretaire
+--
+-mailsMembre = new ArrayList(): List&lt;String&gt;
+-mailsInscrit = new ArrayList(): List&lt;String&gt;
+--
++Secretaire(int id, String nomPrenom, String email, String adresse, String numTel, int anneeInscr, int derAnneeParticipation): ctor
++ecritMailMembre(Membre[] membres, Evenement evenement): List&lt;String&gt;
++ecritMailInscrit(Evenement evenement): List&lt;String&gt;
++ajoutInscrit(InscritEven inscrit, int nbInscrits, Evenement evenement): int
++ajoutInscrit(Evenement evenement, Membre membre, double budjetPrevisionnel): void
++suppInscrit(InscritEven inscrit, int nbInscrits, Evenement evenement): int
++afficherInscritCourant(int nbInscrits, Evenement evenement): void
++suppressionMembrePossible(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>444</x>
+      <y>726</y>
+      <w>270</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>evenement::FournitureInscrit
+--
+-salle: Salle
+-produit: Produit
+-nbr: int
+-prix: double
+--
++FournitureInscrit(Salle salle, Produit produit, int nbr, double prix): ctor
++getSalle(): Salle
++getProduit(): Produit
++getNbr(): int
++getPrix(): double
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>894</x>
+      <y>408</y>
+      <w>486</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>membre::President
+--
+--
++President(int id, String nomPrenom, String email, String adresse, String numTel, int anneeInscr, int derAnneeParticipation): ctor
++ajoutEven(Evenement[] evenements, Evenement evenement, int nbEven): Evenement[]
++ajoutEven(Evenement[] evenements, LocalDateTime dateEven, String detail): Evenement[]
++suppEven(Evenement[] evenements, Evenement evenement, int nbEven): Evenement[]
++afficherEvenCourant(Evenement[] evenements, int nbEven): void
++suppressionMembrePossible(): String
++changerStatut(Statut statut): Membre
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>720</y>
+      <w>486</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>membre::Tresorier
+--
+--
++Tresorier(int id, String nomPrenom, String email, String adresse, String numTel, int anneeInscr, int derAnneeParticipation): ctor
++suppressionMembrePossible(): String
++listerAchatRestantLocation(Evenement evenement): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>0</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>club::Registre
+--
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>198</x>
+      <y>486</y>
+      <w>132</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=0..1
+m2=*
+&lt; est une fourniture nécssaire</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>582</x>
+      <y>672</y>
+      <w>72</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=*
+&lt; est à fournir</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>438</x>
+      <y>486</y>
+      <w>72</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=0..1
+m2=*
+&lt; est inscrit à</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1170</x>
+      <y>366</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>366</y>
+      <w>192</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>300.0;10.0;300.0;50.0;10.0;50.0;10.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1392</x>
+      <y>366</y>
+      <w>24</w>
+      <h>366</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;590.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>918</x>
+      <y>96</y>
+      <w>240</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=0..1
+m2=3..n
+&lt; est membre de</panel_attributes>
+    <additional_attributes>10.0;20.0;360.0;20.0;360.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>318</x>
+      <y>192</y>
+      <w>228</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=*
+est proposé par &gt;</panel_attributes>
+    <additional_attributes>360.0;20.0;10.0;20.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>582</x>
+      <y>324</y>
+      <w>372</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1
+&lt; est inscrit à cette manifestation</panel_attributes>
+    <additional_attributes>10.0;350.0;10.0;20.0;600.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>804</y>
+      <w>126</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>_Produit: Enumération
+--
+-nom: String
+-prix: double
+-parPersonne: double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>102</x>
+      <y>714</y>
+      <w>84</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=*
+est composé de &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1344</x>
+      <y>300</y>
+      <w>114</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>828</y>
+      <w>288</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=0..1
+&lt; est à acheter</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>234</x>
+      <y>744</y>
+      <w>126</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>_Salle: Enumeration_
+--
+-nom: String;
+-adresse: String
+-prix: double
+-nbPersonneMin: int;
+-nbPersonneMax: int;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>318</x>
+      <y>486</y>
+      <w>84</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0..1
+m2=*
+est composé de &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>354</x>
+      <y>774</y>
+      <w>102</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..1
+&lt; est payé par</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+</diagram>
