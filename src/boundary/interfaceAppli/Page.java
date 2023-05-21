@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
 public class Page {
+	
     private static CardLayout cardLayout;
     private static JPanel cardPanel;
     private static JTextField nomPrenomField;
