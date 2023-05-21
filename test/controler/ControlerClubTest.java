@@ -32,7 +32,7 @@ class ControlerClubTest {
 		assertEquals(Statut.MEMBRE, club.rechercherStatut(5));
 	}
 
-	//Exigence n°e1 : L'utilisateur peut changer le statut d'un membre simple en president
+	//Exigence n°2 : L'utilisateur peut changer le statut d'un membre simple en president
 	@Test
 	void changerStatutMembreDevientPresidentTest() {
 		int resultat = club.changerStatut(5, Statut.PRESIDENT);
@@ -40,7 +40,7 @@ class ControlerClubTest {
 		assertEquals(Statut.PRESIDENT, club.rechercherStatut(5));
 	}
 
-	//Exigence n°e2 : L'utilisateur peut changer le statut d'un secretaire en president
+	//Exigence n°3 : L'utilisateur peut changer le statut d'un secretaire en president
 	@Test
 	void changerStatutSecretaireDevientPresidentTest() {
         int ancienSecretaire = club.rechercherStatut(Statut.SECRETAIRE);
@@ -49,7 +49,7 @@ class ControlerClubTest {
 		assertEquals(Statut.PRESIDENT, club.rechercherStatut(ancienSecretaire));
 	}
 
-	//Exigence n°e3 : L'utilisateur peut changer le statut d'un trésorier en president
+	//Exigence n°4 : L'utilisateur peut changer le statut d'un trésorier en president
 	@Test
 	void changerStatutTresorierDevientPresidentTest() {
         int ancienTresorier = club.rechercherStatut(Statut.TRESORIER);
@@ -58,14 +58,14 @@ class ControlerClubTest {
 		assertEquals(Statut.PRESIDENT, club.rechercherStatut(ancienTresorier));
 	}
 
-	//Exigence n°e4 : L'utilisateur ne peut pas changer le statut d'un président en president
+	//Exigence n°5 : L'utilisateur ne peut pas changer le statut d'un président en president
 	@Test
 	void changerStatutPresidentNeDevientPasPresidentTest() {
 		int resultat = club.changerStatut(club.rechercherStatut(Statut.PRESIDENT), Statut.PRESIDENT);
 		assertEquals(-2, resultat);
 	}
 
-	//Exigence n°2 : L'utilisateur peut changer le statut d'un membre (hors le président et le trésorier) en tresorier
+	//Exigence n°6 : L'utilisateur peut changer le statut d'un membre (hors le président et le trésorier) en tresorier
 	@Test
 	void changerStatutMembreTresorierTest() {
 		int resultat = club.changerStatut(5, Statut.TRESORIER);
@@ -81,7 +81,7 @@ class ControlerClubTest {
 	}
 
 
-	//Exigence n°f1 : L'utilisateur ne peut changer de statut d'un membre simple en Tresorier
+	//Exigence n°7 : L'utilisateur ne peut changer de statut d'un membre simple en Tresorier
 	@Test
 	void changerStatutMembreDevientTresorierTest() {
 		int resultat = club.changerStatut(5, Statut.TRESORIER);
@@ -89,7 +89,7 @@ class ControlerClubTest {
 		assertEquals(Statut.TRESORIER, club.rechercherStatut(5));
 	}
 
-	//Exigence n°f2 : L'utilisateur peut changer le statut d'un secretaire en Trésorier
+	//Exigence n°8 : L'utilisateur peut changer le statut d'un secretaire en Trésorier
 	@Test
 	void changerStatutSecretaireDevientTresoriereTest() {
         int ancienSecretaire = club.rechercherStatut(Statut.SECRETAIRE);
@@ -98,14 +98,14 @@ class ControlerClubTest {
 		assertEquals(Statut.TRESORIER, club.rechercherStatut(ancienSecretaire));
 	}
 
-	//Exigence n°f3 : L'utilisateur pas changer le statut d'un Trésorier en Trésorier
+	//Exigence n°9 : L'utilisateur pas changer le statut d'un Trésorier en Trésorier
 	@Test
 	void changerStatutTresorierNeDevientPasPresidentTest() {
 		int resultat = club.changerStatut(club.rechercherStatut(Statut.TRESORIER), Statut.TRESORIER);
 		assertEquals(-2, resultat);
 	}
 
-	//Exigence n°f4 : L'utilisateur ne peut changer de statut d'un président en Tresorier
+	//Exigence n°10 : L'utilisateur ne peut changer de statut d'un président en Tresorier
 	@Test
 	void changerStatutPresidentNeDevientPasTresorierTest() {
 		int resultat = club.changerStatut(1, Statut.TRESORIER);
@@ -113,7 +113,7 @@ class ControlerClubTest {
 	}
 
 	
-	//Exigence n°3 : L'utilisateur peut changer le statut d'un membre (hors le président et le secretaire) en secretaire
+	//Exigence n°11 : L'utilisateur peut changer le statut d'un membre (hors le président et le secretaire) en secretaire
 	@Test
 	void changerStatutMembreSecretaireTest() {
 		int resultat = club.changerStatut(5, Statut.SECRETAIRE);
@@ -128,7 +128,7 @@ class ControlerClubTest {
 	}
 
 
-	//Exigence n°g1 : L'utilisateur ne peut changer de statut d'un membre simple en Tresorier
+	//Exigence n°12 : L'utilisateur ne peut changer de statut d'un membre simple en Tresorier
 	@Test
 	void changerStatutMembreDevientSecretaireTest() {
 		int resultat = club.changerStatut(5, Statut.SECRETAIRE);
@@ -136,14 +136,14 @@ class ControlerClubTest {
 		assertEquals(Statut.SECRETAIRE, club.rechercherStatut(5));
 	}
 
-	//Exigence n°g2 : L'utilisateur peut changer le statut d'un secretaire en Trésorier
+	//Exigence n°13 : L'utilisateur peut changer le statut d'un secretaire en Trésorier
 	@Test
 	void changerStatutSecretaireNeDevientPasSecretaireTest() {
 		int resultat = club.changerStatut(club.rechercherStatut(Statut.SECRETAIRE), Statut.SECRETAIRE);
 		assertEquals(-2, resultat);
 	}
 
-	//Exigence n°g3 : L'utilisateur pas changer le statut d'un Trésorier en Trésorier
+	//Exigence n°14 : L'utilisateur pas changer le statut d'un Trésorier en Trésorier
 	@Test
 	void changerStatutTresorierDevientSecretaireTest() {
 	    int ancienTresorier = club.rechercherStatut(Statut.TRESORIER);
@@ -152,7 +152,7 @@ class ControlerClubTest {
 		assertEquals(Statut.SECRETAIRE, club.rechercherStatut(ancienTresorier));
 	}
 
-	//Exigence n°g4 : L'utilisateur ne peut changer de statut d'un président en Tresorier
+	//Exigence n°15 : L'utilisateur ne peut changer de statut d'un président en Tresorier
 	@Test
 	void changerStatutPresidentNeDevientPasSecretaireTest() {
 		int resultat = club.changerStatut(1, Statut.TRESORIER);
@@ -160,14 +160,14 @@ class ControlerClubTest {
 	}
 
 
-	//Exigence n°h1 : L'utilisateur ne peut changer de statut d'un membre simple en Membre
+	//Exigence n°16 : L'utilisateur ne peut changer de statut d'un membre simple en Membre
 	@Test
 	void changerStatutMembreNeDevientPasMembreTest() {
 		int resultat = club.changerStatut(5, Statut.MEMBRE);
 		assertEquals(-2, resultat);
 	}
 
-	//Exigence n°h2 : L'utilisateur peut changer le statut d'un secretaire en Membre
+	//Exigence n°17 : L'utilisateur peut changer le statut d'un secretaire en Membre
 	@Test
 	void changerStatutSecretaireDevientMembreTest() {
         int ancienSecretaire = club.rechercherStatut(Statut.SECRETAIRE);
@@ -176,7 +176,7 @@ class ControlerClubTest {
 		assertEquals(Statut.MEMBRE, club.rechercherStatut(ancienSecretaire));
 	}
 
-	//Exigence n°h3 : L'utilisateur peut changer le statut d'un Trésorier en Membre
+	//Exigence n°18 : L'utilisateur peut changer le statut d'un Trésorier en Membre
 	@Test
 	void changerStatutTresorierDevientMembreTest() {
         int ancienTresorier = club.rechercherStatut(Statut.TRESORIER);
@@ -185,7 +185,7 @@ class ControlerClubTest {
 		assertEquals(Statut.MEMBRE, club.rechercherStatut(ancienTresorier));
 	}
 
-	//Exigence n°h4 : L'utilisateur peut changer de statut d'un président en Membre
+	//Exigence n°19 : L'utilisateur peut changer de statut d'un président en Membre
 	@Test
 	void changerStatutPresidentNeDevientPasMembreTest() {
 		int resultat = club.changerStatut(1, Statut.MEMBRE);
@@ -193,7 +193,7 @@ class ControlerClubTest {
 	}
 
 	
-	//Exigence n°4 : Dans la l'association il y a un et un seul president (après initialisation du club)
+	//Exigence n°20 : Dans la l'association il y a un et un seul president (après initialisation du club)
 	@Test
 	void changerStatutUniquePresidentTest() {
 		 club.changerStatut(5, Statut.PRESIDENT);
@@ -213,7 +213,7 @@ class ControlerClubTest {
 		}
 		assertEquals(1, nb_occ);
 	}
-	//Exigence n°5 : Dans la l'association il y a au plus un unique tresorier
+	//Exigence n°21 : Dans la l'association il y a au plus un unique tresorier
 	@Test
 	void changerStatutUniqueTresorierTest() {
 		club.changerStatut(5, Statut.TRESORIER);
@@ -233,7 +233,7 @@ class ControlerClubTest {
 		assertEquals(0, nb_occ);
 	}
 	
-	//Exigence n°6 : Dans la l'association il y a au plus un secretaire
+	//Exigence n°22 : Dans la l'association il y a au plus un secretaire
 	@Test
 	void changerStatutUniqueSecretaireTest() {
 
@@ -260,21 +260,21 @@ class ControlerClubTest {
 		assertEquals(0, nb_occ);
 	}
 
-	//Exigence n°7 : impossible de changer le statut d'un membre inexistant
+	//Exigence n°23 : l'utilisateur ne peux pas changer le statut d'un membre inexistant
 	@Test
 	void changerStatutIdentifiantInconnu() {
         int derMembre = club.nombreMembre();
         assertEquals(-1, club.changerStatut(derMembre + 1, Statut.SECRETAIRE));
 	}
 	
-	//Exigence n°9 : impossible de ne pas mettre de statut à un membre
+	//Exigence n°24 : l'utilisateur a l'obligation de mettre un statut à un membre
 	@Test
 	void changerStatutStatutNull() {
         assertEquals(-9, club.changerStatut(5, null));
 		assertEquals(Statut.MEMBRE, club.rechercherStatut(5));
 	}
 
-	//Exigence n°10 : impossible de mettre un identifiant à 0 ou négatif
+	//Exigence n°25 : l'utilisateur ne peux pas mettre un identifiant à 0 ou négatif
 	@Test
 	void changerStatutIdentifiantNull() {
         assertEquals(-1, club.changerStatut(0, Statut.SECRETAIRE));
@@ -282,13 +282,9 @@ class ControlerClubTest {
 	}
 
 
-	//Exigence n°13 : pour changer le statut de l'ancien président il faut avoir choisit un autre président
+	//Exigence n°26 : l'utilisateur peut changer le statut de l'ancien président seulement si une autre personne a été nommé président
 	@Test
 	void changerStatutChangerStatutPresident() {
-		// vérifie qu'on ne peut pas changer directement le statut du président
-		assertEquals(-3, club.changerStatut(club.rechercherStatut(Statut.PRESIDENT), Statut.TRESORIER));
-		
-		// vérifier qu'on peut changer le statut de l'ancien président si une autre personne a été nommé président
 		club.changerStatut(5, Statut.PRESIDENT);
         assertEquals(0, club.changerStatut(1, Statut.TRESORIER));
 		assertEquals(Statut.TRESORIER, club.rechercherStatut(1));
